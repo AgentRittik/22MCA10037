@@ -1,9 +1,10 @@
-
+const { GetService } = require('../services/get-service');
+const getService = new GetService();
 const getAll = async (req, res) => {
     try{
-        const cities = await cityService.getAllCities(req.query);
+        const response = await getService.getAll(req.query);
         return res.status(200).json({
-            data: cities,
+            data: response,
             sucess: true,
             message: 'Sucessfully fetched all the cities',
             err: {}
