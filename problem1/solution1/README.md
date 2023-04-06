@@ -1,3 +1,7 @@
-#Output
+# SOLUTION1
 
-![OutputScreenShot!](afford_Medicals_Sol1.jpg)
+## OUTPUT
+
+<p>
+    <img src="./afford_Medicals_Sol1.jpg" />
+</p>
