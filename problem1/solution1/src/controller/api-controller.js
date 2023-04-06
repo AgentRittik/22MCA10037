@@ -1,8 +1,14 @@
-const { GetService } = require('../services/get-service');
+const GetService = require('../services/get-service');
 const getService = new GetService();
+
 const getAll = async (req, res) => {
     try{
         const response = await getService.getAll(req.query);
+        // console.log(req.query.URL[0]);
+        // console.log(req.query.URL[1]);
+         console.log(req.query.URL.length);
+
+
         return res.status(200).json({
             data: response,
             sucess: true,
@@ -22,6 +28,6 @@ const getAll = async (req, res) => {
     }
 }
 
-module.export = {
+module.exports = {
     getAll
 }

@@ -3,7 +3,7 @@ const express  = require("express");
 const bodyParser = require("body-parser");
 const ApiRoutes = require('./routes/index');
 
-const {ApiController} = require('')
+//const {ApiController} = require('')
 
 const setupAndStartServer = async () => {
 
@@ -12,12 +12,11 @@ const setupAndStartServer = async () => {
 
     //middleware
     app.use(bodyParser.json());
-    app.use(bodyParser.urlencoded({ extended: true }));
-    app.use('/', ApiRoutes);
+    app.use(bodyParser.urlencoded({ extended: false}));
+    app.use('/api', ApiRoutes);
 
     app.listen(3000 , async() => {
         console.log("server is started "); 
-        
     });
 };
 
