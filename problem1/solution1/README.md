@@ -1,3 +1,3 @@
 #Output
 
-![OutputScreenShot!](afford_Medicals_Sol1.png)
+![OutputScreenShot!](afford_Medicals_Sol1.jpg)
