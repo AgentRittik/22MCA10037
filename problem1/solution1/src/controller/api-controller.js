@@ -6,7 +6,7 @@ const getAll = async (req, res) => {
         const response = await getService.getAll(req.query);
         // console.log(req.query.URL[0]);
         // console.log(req.query.URL[1]);
-         console.log(req.query.URL.length);
+         //console.log(req.query.URL.length);
 
 
         return res.status(200).json({

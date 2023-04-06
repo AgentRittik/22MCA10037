@@ -3,7 +3,7 @@ const axios = require('axios');
 
 
 class GetService {
-
+    
     #createData(data){
         var validUrls = [];
         const myData =[
@@ -14,14 +14,17 @@ class GetService {
         ];
 
         var urlArr = data.URL;
-        console.log("data -> " , urlArr);
-        console.log("querylength-> ",data.URL.length)
-        for(let i =0 ; i<data.URL.length; i++){
-            console.log("check -> " , myData.includes(urlArr[i]));
-            console.log("arrayyyyyyyyyyyyy -> ", myData[i]);
-           if( myData.includes(urlArr[i])){
-               validUrls.push(urlArr[i]);
-           }
+        if(typeof(data.URL) === "string"){
+            if(myData.includes(data.URL)){
+                validUrls.push(urlArr);
+            }
+        }
+        else{
+            for(let i =0 ; i<data.URL.length; i++){
+                if( myData.includes(urlArr[i])){
+                    validUrls.push(urlArr[i]);
+                }
+             }
         }
         return validUrls;
     }
@@ -29,6 +32,11 @@ class GetService {
     async getAll(data){
         try{
              const filterArray = this.#createData(data);
+             const urlResponses =[]
+             for(let i =0 ; i<filterArray.length ; i++){
+                const ans = await axios.get(filterArray[i]);
+                urlResponses.push(ans);
+             }
              console.log("ans ->", filterArray);
         }
         catch(error){
