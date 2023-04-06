@@ -1,16 +1,25 @@
 const axios = require('axios');
 
 
+const { Merge , MergeSort } = require('../utils/helper');
+
 
 class GetService {
+
+
     
-    #createData(data){
+    
+    createData(data){
         var validUrls = [];
         const myData =[
-            "http://anything.com/fibo",
-            "http://anything.com/primes",
-            "http://anything.com/odd",
-            "http://anything.com/rand",
+            "http://localhost:4500/fibo",
+            "http://localhost:4500/primes",
+            "http://localhost:4500/odd",
+            "http://localhost:4500/rand",
+            // "http://anything.com/fibo",
+            // "http://anything.com/primes,"
+            // "http://anything.com/odd",
+            // "http://anything.com/rand",
         ];
 
         var urlArr = data.URL;
@@ -31,13 +40,25 @@ class GetService {
 
     async getAll(data){
         try{
-             const filterArray = this.#createData(data);
+             const filterArray = this.createData(data);
              const urlResponses =[]
              for(let i =0 ; i<filterArray.length ; i++){
                 const ans = await axios.get(filterArray[i]);
-                urlResponses.push(ans);
-             }
-             console.log("ans ->", filterArray);
+                urlResponses.push(ans.data);
+            }
+            console.log(urlResponses.length);
+            var emptyArr =[];
+            for(let i = 0 ; i< urlResponses.length ; i++){
+                let secondArr = urlResponses[i];
+                console.log(emptyArr);
+                emptyArr = Merge(emptyArr ,secondArr);
+                console.log("after -> ",emptyArr);
+
+            }
+            var sortedMergedArray = MergeSort(emptyArr);
+            console.log(emptyArr);
+
+            
         }
         catch(error){
             console.log("Something went wrong in the service layer");

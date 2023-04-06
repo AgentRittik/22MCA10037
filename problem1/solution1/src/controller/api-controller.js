@@ -12,7 +12,7 @@ const getAll = async (req, res) => {
         return res.status(200).json({
             data: response,
             sucess: true,
-            message: 'Sucessfully fetched all the cities',
+            message: 'Something went wrong in service layer',
             err: {}
         });
     }
