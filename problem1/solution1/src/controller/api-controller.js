@@ -10,9 +10,9 @@ const getAll = async (req, res) => {
 
 
         return res.status(200).json({
-            data: response,
+            numbers: response,
             sucess: true,
-            message: 'Something went wrong in service layer',
+            message: 'Sucessfully',
             err: {}
         });
     }
@@ -21,7 +21,7 @@ const getAll = async (req, res) => {
         return res.status(500).json({
             data: {},
             sucess: false,
-            message: 'not able to fetch the cities',
+            message: 'something went wrong in controllers',
             err: error
 
         });

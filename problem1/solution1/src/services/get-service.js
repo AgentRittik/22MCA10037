@@ -56,9 +56,9 @@ class GetService {
 
             }
             var sortedMergedArray = MergeSort(emptyArr);
-            console.log(emptyArr);
 
-            
+            const FinalResponse = [...new Set(sortedMergedArray)];
+            return FinalResponse;
         }
         catch(error){
             console.log("Something went wrong in the service layer");
